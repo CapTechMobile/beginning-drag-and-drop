@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="prG-va-RfY">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Drop-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="DropViewController" customModule="DragToMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drop Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DwO-g3-zFs">
+                                <rect key="frame" x="147.5" y="192" width="79" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0YO-nq-hra">
+                                <rect key="frame" x="87" y="233" width="200" height="200"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="8vi-Yf-VBZ"/>
+                                    <constraint firstAttribute="height" constant="200" id="NKK-Vj-pkc"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0YO-nq-hra" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="V36-9Q-hJ2"/>
+                            <constraint firstItem="0YO-nq-hra" firstAttribute="top" secondItem="DwO-g3-zFs" secondAttribute="bottom" constant="20" id="dw8-aR-ux2"/>
+                            <constraint firstItem="0YO-nq-hra" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nCY-Xo-95e"/>
+                            <constraint firstItem="DwO-g3-zFs" firstAttribute="centerX" secondItem="0YO-nq-hra" secondAttribute="centerX" id="uGY-wW-lfg"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Drop" id="Zc7-YW-NnE"/>
+                    <connections>
+                        <outlet property="dropImageView" destination="0YO-nq-hra" id="r7f-ON-lOb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="372" y="37.331334332833585"/>
+        </scene>
+        <!--Drag-->
+        <scene sceneID="d9K-nZ-alT">
+            <objects>
+                <viewController id="Vt3-m4-Gik" customClass="DragViewController" customModule="DragToMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Njc-JW-RFx"/>
+                        <viewControllerLayoutGuide type="bottom" id="aeD-wX-hGu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jhz-Pk-N2j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag Me!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gvo-Fg-5qZ">
+                                <rect key="frame" x="87" y="233.5" width="200" height="200"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="MRu-9Y-mwZ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="ldd-Qv-dGe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Gvo-Fg-5qZ" firstAttribute="centerX" secondItem="Jhz-Pk-N2j" secondAttribute="centerX" id="0NB-G9-p9L"/>
+                            <constraint firstItem="Gvo-Fg-5qZ" firstAttribute="centerY" secondItem="Jhz-Pk-N2j" secondAttribute="centerY" id="3yn-2N-lcc"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Drag" id="XJK-09-Xai"/>
+                    <connections>
+                        <outlet property="dragLabel" destination="Gvo-Fg-5qZ" id="qIC-Ln-zod"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qy3-Qf-feh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="372" y="806"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="XxS-0c-zs6">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="prG-va-RfY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="tVa-z1-rxL">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="7dO-1e-4Jf"/>
+                        <segue destination="Vt3-m4-Gik" kind="relationship" relationship="viewControllers" id="aIL-ea-ydS"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rbt-bI-4fY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-423" y="37"/>
+        </scene>
+    </scenes>
+</document>
