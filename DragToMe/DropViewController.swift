@@ -13,7 +13,8 @@ class DropViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        pasteConfiguration = UIPasteConfiguration(acceptableTypeIdentifiers: ["public.jpeg"])
+        dropImageView.pasteConfiguration = UIPasteConfiguration(acceptableTypeIdentifiers: ["public.jpeg"])
+        dropImageView.isUserInteractionEnabled = true
     }
 
     override func paste(itemProviders: [NSItemProvider]) {
