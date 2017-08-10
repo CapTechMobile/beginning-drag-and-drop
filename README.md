@@ -8,13 +8,13 @@ The easiest way to support dropping data into your app is to leverage the new [`
 
 Specify the data you want to accept using [`UIPasteConfiguration`](https://developer.apple.com/documentation/uikit/uipasteconfiguration). Create on by passing in an array of type identifier strings and then assign it to the new `pasteConfiguration` property on your view or view controller:
 
-```
+```swift
 pasteConfiguration = UIPasteConfiguration(acceptableTypeIdentifiers: ["public.jpeg"])
 ```
 
 Now override the `paste()`function to load data that gets dropped. It is possible for users to drop multiple at the same time. Each dropped item is represented by an [`NSItemProvider`](https://developer.apple.com/documentation/foundation/nsitemprovider) instance and they all arrive in an array. Ask the item provider to load the data and then put it to use:
 
-```
+```swift
 override func paste(itemProviders: [NSItemProvider]) {
     for itemProvider in itemProviders {
         itemProvider.loadObject(ofClass: UIImage.self, completionHandler: { (providedImage, error) in
@@ -38,7 +38,7 @@ Making draggable items is just as easy accepting drops. Again there are two step
 
 Views become draggable when a [`UIDragInteraction`](https://developer.apple.com/documentation/uikit/uidraginteraction) is added to the them using the new `addInteraction()` function. The view must have user interaction enabled:
 
-```
+```swift
 let dragInteraction = UIDragInteraction(delegate: self)
 myDraggableView.addInteraction(dragInteraction)
 myDraggableView.isUserInteractionEnabled = true
@@ -46,7 +46,7 @@ myDraggableView.isUserInteractionEnabled = true
 
 The drag interaction takes a delegate which will provide the actual data. The data will be encapsulated in [`NSItemProvider`](https://developer.apple.com/documentation/foundation/nsitemprovider) instances just like we received in the `paste()` function above. These are created by passing in objects that conform to [`NSItemProviderWriting`](https://developer.apple.com/documentation/foundation/nsitemproviderwriting). When dragging begins the delegate needs to provide any such providers in corresponding instances of [`UIDragItem`](https://developer.apple.com/documentation/uikit/uidragitem):
 
-```
+```swift
 func dragInteraction(_ interaction: UIDragInteraction, itemsForBeginning session: UIDragSession) -> [UIDragItem] {
     guard let text = dragLabel.text, text != "" else {
         // The drag will not be performed
