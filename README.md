@@ -3,10 +3,10 @@ Apple dropped an exciting new feature into iOS this year at WWDC: Drag and Drop!
 
 Be sure to follow along with the [sample code](https://github.com/CapTechMobile/beginning-drag-and-drop).
 
-## Becoming a drop target
+## Becoming a Drop Target
 The easiest way to support dropping data into your app is to leverage the new [`UIPasteConfigurationSupporting`](https://developer.apple.com/documentation/uikit/uipasteconfigurationsupporting) protocol. This is easy because [`UIResponder`](https://developer.apple.com/documentation/uikit/uiresponder) already conforms, so every view and view controller is ready to go. There are only two things you need to do: specify the types of data you want accept and load the data when it is dropped.
 
-Specify the data you want to accept using [`UIPasteConfiguration`](https://developer.apple.com/documentation/uikit/uipasteconfiguration). Create on by passing in an array of type identifier strings and then assign it to the new `pasteConfiguration` property on your view or view controller:
+Specify the data you want to accept using [`UIPasteConfiguration`](https://developer.apple.com/documentation/uikit/uipasteconfiguration). Create one by passing in an array of type identifier strings and then assign it to the new `pasteConfiguration` property on your view or view controller:
 
 ```swift
 pasteConfiguration = UIPasteConfiguration(acceptableTypeIdentifiers: ["public.jpeg"])
@@ -32,7 +32,7 @@ That's all you need to do to support dropping data onto your views! The paste co
 
 > **Note:** It's worth thinking about where the `pasteConfiguration` will be set and where the `paste()` function will be overridden. You might have one specific view where you intend to accept drops but it would be nice if your view controller could handle loading. Fortunately the responder chain makes that easy. You can assign a paste configuration to that specific view (make sure `isUserInteractionEnabled` is `true`) and override the `paste()` function in the view controller and then everything will “just work”. But this approach breaks down if your view controller contains more than one drop target. The `paste()` function gives no indication of which view the drop came from. If you have multiple views per view controller that can accept drops then each view may need to override `paste()`. Whatever you decide to do just keep in mind that dropped items will be passed up the responder chain until a responder is able to handle them.
 
-## Becoming a drag item
+## Becoming a Drag Item
 Making draggable items is just as easy accepting drops. Again there are two steps: make views draggable and provide the corresponding data. These two steps are accomplished using a [`UIDragInteraction`](https://developer.apple.com/documentation/uikit/uidraginteraction) and a corresponding delegate.
 
 Views become draggable when a [`UIDragInteraction`](https://developer.apple.com/documentation/uikit/uidraginteraction) is added to the them using the new `addInteraction()` function. The view must have user interaction enabled:
